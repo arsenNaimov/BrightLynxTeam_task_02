@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Вторая задачка</title>
+        <script type="text/javascript">
+
+            function possibleMoves(){               
+                var index = document.getElementById('position').value;
+                var x;
+                var trueResult = [];
+                switch(String(index[0])){
+                    case 'A': x = 1; break;
+                    case 'B': x = 2; break;
+                    case 'C': x = 3; break;
+                    case 'D': x = 4; break;
+                    case 'E': x = 5; break;
+                    case 'F': x = 6; break;
+                    case 'G': x = 7; break;
+                    case 'H': x = 8; break;
+                    default: alert('Введите корректные данные');
+                }
+                var result = [];
+                result[0] = [x - 1 , Number(index[1]) + 2];
+                result[1] = [x - 1, Number(index[1]) - 2];
+                result[2] = [x + 1, Number(index[1]) + 2];
+                result[3] = [x + 1, Number(index[1]) - 2];
+                result[4] = [x - 2, Number(index[1]) + 1];
+                result[5] = [x - 2, Number(index[1]) -1];
+                result[6] = [x + 2, Number(index[1]) + 1];
+                result[7] = [x + 2, Number(index[1]) - 1];
+                for(var x=0; x < result.length; x++){
+                    if(result[x][0] > 0 && result[x][1] > 0){
+                        var perem = result[x][0];
+                        switch(perem){
+                        case 1: perem = 'A'; break;
+                        case 2: perem = 'B'; break;
+                        case 3: perem = 'C'; break;
+                        case 4: perem = 'D'; break;
+                        case 5: perem = 'E'; break;
+                        case 6: perem = 'F'; break;
+                        case 7: perem = 'G'; break;
+                        case 8: perem = 'H'; break;
+                    }
+                    var res = [perem + result[x][1]];
+                    trueResult.push(res);    
+                }
+                }
+                if(trueResult != 0){
+                    alert(trueResult);
+                }
+                }
+        </script>
+        <style>
+        div {
+            width: 180px;
+            padding: 10px;
+            border: solid 3px rgb(235, 231, 231);
+            }
+        </style>            
+    </head>
+<body>
+    <div>
+    <form>
+        <label><strong>Исходное положение:</strong></label><br>
+        <input id="position"><br>
+        <br>
+        <button onclick="possibleMoves()">Ок</button>
+    </form>  
+    </div>
+</body>
+</html>
